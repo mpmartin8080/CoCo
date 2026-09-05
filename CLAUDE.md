@@ -1,0 +1,11 @@
+# 6809 CoCo Coding Rules
+- Target Architecture: Motorola 6809 (8-bit accumulator, 16-bit index registers).
+- Target Machine: Tandy Color Computer (CoCo 1/2 or CoCo 3).
+- Primary Toolchain: LWTOOLS (lwasm syntax). Do not use cross-platform 6502 macros.
+- Registers: 
+  - Accumulators: A, B (can combine into 16-bit D).
+  - Index Registers: X, Y.
+  - Stack Pointers: S (Hardware stack), U (User stack).
+  - Page Pointer: DP (Direct Page register for optimization).
+- Constraints: Always remember the 6809 has a true 8x8 hardware multiply (`MUL`). Prefer 6809 specific opcodes like `EXG`, `TFR`, and position-independent code strategies (`PCR`).
+- Memory Maps: Keep standard CoCo memory maps (e.g., $FF00 for PIA registers, $0400 for text screen memory) in mind.
